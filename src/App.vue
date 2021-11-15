@@ -27,13 +27,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #7eacda;
 }
 
 body {
   text-align: center;
   border: 12px solid;
   border-image: linear-gradient(135deg, #2c3e50 0%, #4d6c8b 25%, #fcfcfc 50%, #42b983 75%, #23694a 100%) 1;
+  background-color: black;
 }
 
 #nav {
@@ -42,7 +43,7 @@ body {
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #6396c9;
 }
 
 #nav a.router-link-exact-active {

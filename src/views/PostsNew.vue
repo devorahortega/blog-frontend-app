@@ -1,6 +1,6 @@
 <template>
   <div class="postnew">
-    <form>
+    <form v-on:submit.prevent="createPost()">
       <h1>{{ message }}</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">
@@ -19,6 +19,7 @@
         <lablel>Image:</lablel>
         <input type="text" v-model="newPostParams.image" />
       </div>
+      <input type="submit" value="Submit" />
     </form>
   </div>
 </template>
@@ -26,12 +27,12 @@
 <script>
 import axios from "axios";
 
-export default
-  data: function () {}
+export default {
+  data: function () {
     return {
-      message:"Create a Post:",
+      message: "Create a Post:",
       newPostParams: {},
-     errors: [],
+      errors: [],
     };
   },
   methods: {
