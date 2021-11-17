@@ -1,5 +1,6 @@
 <template>
   <div class="postnew">
+    <img v-if="status" :src="`https://http.cat/${status}`" alt="" />
     <form v-on:submit.prevent="createPost()">
       <h1>{{ message }}</h1>
       <ul>
@@ -8,11 +9,11 @@
         </li>
       </ul>
       <div>
-        <lablel>Title:</lablel>
+        <label>Title:</label>
         <input type="text" v-model="newPostParams.title" />
       </div>
       <div>
-        <lablel>Body:</lablel>
+        <label>Body:</label>
         <input type="text" v-model="newPostParams.body" />
         <small>{{ 100 - newPostParams.body.length }}</small>
         <small v-if="newPostParams.body.length > 100" class="text-danger">
@@ -20,7 +21,7 @@
         </small>
       </div>
       <div>
-        <lablel>Image:</lablel>
+        <label>Image:</label>
         <input type="text" v-model="newPostParams.image" />
       </div>
       <input type="submit" value="Submit" />
@@ -37,6 +38,7 @@ export default {
       message: "Create a Post:",
       newPostParams: { body: "" },
       errors: [],
+      status: "",
     };
   },
   methods: {
@@ -46,7 +48,10 @@ export default {
         .then(() => {
           this.$router.push("/posts");
         })
-        .catch((error) => console.log(error.response));
+        .catch((error) => {
+          this.status = error.response.status;
+          console.log(error.response);
+        });
     },
   },
 };

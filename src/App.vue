@@ -67,11 +67,13 @@ body {
   color: darkcyan;
 }
 p {
+  text-align: center;
   font-family: Copperplate, "Copperplate Gothic Light";
   color: aqua;
 }
 
 h1 {
+  text-align: center;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
   font-size: 24px;
   font-style: normal;
@@ -79,5 +81,29 @@ h1 {
   font-weight: 700;
   line-height: 26.4px;
   color: darkcyan;
+}
+
+h2 {
+  text-align: center;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600;
+  line-height: 25px;
+  color: darkcyan;
+}
+
+img {
+  align-content: center;
+  color: aliceblue;
+}
+
+label {
+  color: aqua;
+}
+
+button {
+  align-content: center;
 }
 </style>
