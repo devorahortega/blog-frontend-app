@@ -20,8 +20,7 @@
 ;
 <style>
 .selected {
-  color: cadetblue;
-  background-color: cyan;
+  background-color: black;
   transition: background-color 2s ease;
 }
 </style>

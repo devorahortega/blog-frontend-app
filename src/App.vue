@@ -62,8 +62,13 @@
 </template>
 
 <style>
+body {
+  background-image: url(./assets/webb-dark.png);
+  color: darkcyan;
+}
 p {
   font-family: Copperplate, "Copperplate Gothic Light";
+  color: aqua;
 }
 
 h1 {
@@ -73,5 +78,6 @@ h1 {
   font-variant: normal;
   font-weight: 700;
   line-height: 26.4px;
+  color: darkcyan;
 }
 </style>

@@ -14,6 +14,10 @@
       <div>
         <lablel>Body:</lablel>
         <input type="text" v-model="newPostParams.body" />
+        <small>{{ 100 - newPostParams.body.length }}</small>
+        <small v-if="newPostParams.body.length > 100" class="text-danger">
+          You have exceeded the number of characters
+        </small>
       </div>
       <div>
         <lablel>Image:</lablel>
@@ -31,7 +35,7 @@ export default {
   data: function () {
     return {
       message: "Create a Post:",
-      newPostParams: {},
+      newPostParams: { body: "" },
       errors: [],
     };
   },
