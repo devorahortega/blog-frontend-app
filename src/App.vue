@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a v-if="!isLoggedIn()" class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>
@@ -43,20 +43,27 @@
                 Account
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/signup">Signup</a></li>
-                <li><a class="dropdown-item" href="/login">Login</a></li>
+                <li><a v-if="!isLoggedIn()" class="dropdown-item" href="/signup">Signup</a></li>
+                <li><a v-if="!isLoggedIn()" class="dropdown-item" href="/login">Login</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                <li><a v-if="isLoggedIn()" class="dropdown-item" href="/logout">Logout</a></li>
               </ul>
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search by title"
+              aria-label="Search"
+              input-type="text"
+              v-model="titleFilter"
+            />
           </form>
         </div>
       </div>
     </nav>
+    <!-- <div v-if="flashMessage" v-on:click="flashMessage ''" class="alert alert-sucess">{{ flashMessage }}</div> -->
     <router-view />
   </div>
 </template>
@@ -107,3 +114,26 @@ button {
   align-content: center;
 }
 </style>
+
+<script>
+export default {
+  data: function () {
+    return {
+      // flashMessage: "",
+      titleFilter: "",
+    };
+  },
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    getUserId: function () {
+      return localStorage.getItem("user_id");
+    },
+  },
+};
+</script>
